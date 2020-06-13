@@ -4,13 +4,16 @@ use std::cmp::Ordering;
 
 fn main () {
   println!("Lets play guess the number!"); // calls the macro (from exclamation point) println
+  println!("The game will get harder with each round, so don't leave if the first round's too easy!");
 
-  'game: loop { // labels start with an apostrophe
-    let secret_number = rand::thread_rng().gen_range(1, 101); /*
+  'game: for i in 1..10 { // labels start with an apostrophe, for i in 1..10 is equivalent to for (let i = 0; i < 10; i++)
+    let max = 10u32.pow(i); // 10u32 = unsigned 32 bit int 10
+    let secret_number = rand::thread_rng().gen_range(1, max + 1); /*
     thread_rng is defined in the Rng trait of rand (idk what that means)
     static property treat_rng of rand, which is a rng generator on the thread this is running on
     gen_range is a property that generates a random number between arg 1 (inclusive) and arg 2 (exclusive)*/
 
+    println!("I'm thinking of a number between 1 and {}", max);
     'round: loop { // creates an infinite loop
       println!("Please input your guess.");
 
