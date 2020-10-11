@@ -20,10 +20,12 @@ fn main () {
         .read_line(&mut guess)
         .expect("Failed to read line");
 
-      let guess: u32 = match guess.trim().parse() {
+      guess = String::from(guess.trim());
+
+      let guess: u32 = match guess.parse() {
         Ok(num) => num,
         Err(_) => {
-          println!("{} is not a number.", guess.trim());
+          println!("{} is not a number.", guess);
           continue;
         },
       };

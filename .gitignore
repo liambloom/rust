@@ -2,3 +2,5 @@
 !*/target/debug
 */target/debug/*
 !/target/debug/release
+.vscode/
+rust_vocab.txt
